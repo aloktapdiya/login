@@ -1,0 +1,15 @@
+E:\projects\alok\g2tech\src\main\java\com\course5i\base\framework\entity\UserRolesEntity.java
+E:\projects\alok\g2tech\src\main\java\com\course5i\base\framework\service\UserRolesService.java
+E:\projects\alok\g2tech\src\main\java\com\course5i\base\framework\repository\UserDetailsRepository.java
+E:\projects\alok\g2tech\src\main\java\com\course5i\base\framework\config\SwaggerConfig.java
+E:\projects\alok\g2tech\src\main\java\com\course5i\base\framework\entity\UserDetailsEntity.java
+E:\projects\alok\g2tech\src\main\java\com\course5i\base\framework\service\impl\UserRolesServiceImpl.java
+E:\projects\alok\g2tech\src\main\java\com\course5i\base\framework\config\BasicAuthSecurityConfig.java
+E:\projects\alok\g2tech\src\main\java\com\course5i\base\framework\service\UserDetailsService.java
+E:\projects\alok\g2tech\src\main\java\com\course5i\base\framework\Application.java
+E:\projects\alok\g2tech\src\main\java\com\course5i\base\framework\filter\AuthenticationFilter.java
+E:\projects\alok\g2tech\src\main\java\com\course5i\base\framework\service\impl\UserDetailsResponse.java
+E:\projects\alok\g2tech\src\main\java\com\course5i\base\framework\service\impl\UserDetailsServiceImpl.java
+E:\projects\alok\g2tech\src\main\java\com\course5i\base\framework\config\BasicAuthEntryPoint.java
+E:\projects\alok\g2tech\src\main\java\com\course5i\base\framework\controller\UserDetailsController.java
+E:\projects\alok\g2tech\src\main\java\com\course5i\base\framework\repository\UserRolesRepository.java

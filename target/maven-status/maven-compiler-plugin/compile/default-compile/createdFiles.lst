@@ -1,0 +1,14 @@
+com\course5i\base\framework\service\UserDetailsService.class
+com\course5i\base\framework\config\SwaggerConfig.class
+com\course5i\base\framework\entity\UserRolesEntity.class
+com\course5i\base\framework\entity\UserDetailsEntity.class
+com\course5i\base\framework\Application.class
+com\course5i\base\framework\repository\UserRolesRepository.class
+com\course5i\base\framework\config\BasicAuthEntryPoint.class
+com\course5i\base\framework\config\BasicAuthSecurityConfig.class
+com\course5i\base\framework\controller\UserDetailsController.class
+com\course5i\base\framework\repository\UserDetailsRepository.class
+com\course5i\base\framework\service\impl\UserDetailsResponse.class
+com\course5i\base\framework\service\impl\UserRolesServiceImpl.class
+com\course5i\base\framework\service\UserRolesService.class
+com\course5i\base\framework\service\impl\UserDetailsServiceImpl.class

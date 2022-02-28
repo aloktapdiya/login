@@ -1,0 +1,24 @@
+server:
+    port: 8000
+
+spring:
+    application:
+        name: base-framework
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/test
+        username: postgres
+        password: admin
+    jpa:
+        show-sql: true
+        database: postgresql
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        open-in-view: false
+        generate-ddl: false
+    mvc:
+      pathmatch:
+            matching-strategy: ant_path_matcher
+#
+#app.security.user=user
+#app.security.passcode=
+#app.security.role=USER
