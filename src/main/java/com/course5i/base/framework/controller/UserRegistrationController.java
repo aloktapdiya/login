@@ -1,5 +1,8 @@
 package com.course5i.base.framework.controller;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -48,31 +51,31 @@ public class UserRegistrationController {
 	    Set<String> strRoles = userRegistration.getRole();
 	    Set<UserRolesEntity> roles = new HashSet<>();
 	    if (strRoles == null) {
-	      UserRole userRole = roleRepository.findByName(EnumRole.ROLE_USER)
+	      UserRolesEntity userRole = userRolesRepository.findByName(EnumRole.ROLE_USER)
 	          .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 	      roles.add(userRole);
 	    } else {
 	      strRoles.forEach(role -> {
 	        switch (role) {
 	        case "admin":
-	          Role adminRole = roleRepository.findByName(EnumRole.ROLE_ADMIN)
+	          UserRolesEntity adminRole = userRolesRepository.findByName(EnumRole.ROLE_ADMIN)
 	              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 	          roles.add(adminRole);
 	          break;
 	        case "mod":
-	          Role modRole = roleRepository.findByName(EnumRole.ROLE_MODERATOR)
+	        	UserRolesEntity modRole = userRolesRepository.findByName(EnumRole.ROLE_MODERATOR)
 	              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 	          roles.add(modRole);
 	          break;
 	        default:
-	          Role userRole = roleRepository.findByName(EnumRole.ROLE_USER)
+	        	UserRolesEntity userRole = userRolesRepository.findByName(EnumRole.ROLE_USER)
 	              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 	          roles.add(userRole);
 	        }
 	      });
 	    }
-	    user.setRoles(roles);
-	    userRepository.save(user);
+	   // user.setRoles(roles);
+	    userRolesRepository.save(user);
 	    return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
 	  }
 }

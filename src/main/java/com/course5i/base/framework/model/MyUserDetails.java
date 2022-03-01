@@ -52,6 +52,7 @@ public class MyUserDetails implements UserDetails {
 	public MyUserDetails(UserDetailsEntity userDetailsEntity) {
 		this.username = userDetailsEntity.getUsername();
 		this.password = userDetailsEntity.getPassword();
+		this.email = userDetailsEntity.getEmail();
 //		this.authorities = Arrays.stream(userDetailsEntity.getRoles().split(","))
 //				.map(SimpleGrantedAuthority::new).collect(Collectors.toList());
 		
@@ -60,6 +61,12 @@ public class MyUserDetails implements UserDetails {
 		}
 	}
 
+	public MyUserDetails(String username, String email, String passwowrd) {
+        this.username = username;
+        this.password = password;
+		this.email = email;
+
+	}
 	/*
 	 * public MyUserDetailsRegistration(UserDetailsEntity userDetailsEntity) {
 	 * this.username = userDetailsEntity.getUsername(); this.password =

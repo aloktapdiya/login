@@ -19,6 +19,8 @@ public class UserDetailsEntity {
 	    Integer id;
 	    String username;
 	    String password;
+		private String email;
+
 	    @ManyToMany(fetch = FetchType.EAGER)
 	    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
 	    private Collection<UserRolesEntity> roles;
@@ -47,5 +49,11 @@ public class UserDetailsEntity {
 	    public void setRoles(Collection<UserRolesEntity> roles) {
 	        this.roles = roles;
 	    }
+		public String getEmail() {
+			return email;
+		}
 
+		public void setEmail(String email) {
+			this.email = email;
+		}
 }
