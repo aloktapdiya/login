@@ -7,15 +7,20 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.course5i.base.framework.repository.UserDetailsRepository;
 import com.course5i.base.framework.service.UserDetailsService;
 
 @RestController
 public class UserDetailsController {
 
+
+	
 	@GetMapping("/")
 	public String home() {
 		return ("<h1>welcome</h1>");
@@ -30,5 +35,8 @@ public class UserDetailsController {
 	public String admin() {
 		return ("<h1>welcome admin</h1>");
 	}
+	
+	
+	
 	
 }
