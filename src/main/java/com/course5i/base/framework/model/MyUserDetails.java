@@ -6,6 +6,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,9 +19,27 @@ import com.course5i.base.framework.entity.UserRolesEntity;
 
 public class MyUserDetails implements UserDetails {
 	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String username;
 	private String password;
-	
+	private String email;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	private List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 	
 	public MyUserDetails(String username) {
@@ -38,6 +60,16 @@ public class MyUserDetails implements UserDetails {
 		}
 	}
 
+	/*
+	 * public MyUserDetailsRegistration(UserDetailsEntity userDetailsEntity) {
+	 * this.username = userDetailsEntity.getUsername(); this.password =
+	 * userDetailsEntity.getPassword(); // this.authorities =
+	 * Arrays.stream(userDetailsEntity.getRoles().split(",")) //
+	 * .map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+	 * 
+	 * for(UserRolesEntity userRolesEntity : userDetailsEntity.getRoles()) {
+	 * authorities.add(new SimpleGrantedAuthority(userRolesEntity.getName())); } }
+	 */
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return authorities;
