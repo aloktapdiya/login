@@ -62,11 +62,12 @@ public class UserRegistrationController {
 	              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 	          roles.add(adminRole);
 	          break;
-	        case "mod":
-	        	UserRolesEntity modRole = userRolesRepository.findByName(EnumRole.ROLE_MODERATOR)
-	              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-	          roles.add(modRole);
-	          break;
+				/*
+				 * case "mod": UserRolesEntity modRole =
+				 * userRolesRepository.findByName(EnumRole.ROLE_MODERATOR) .orElseThrow(() ->
+				 * new RuntimeException("Error: Role is not found.")); roles.add(modRole);
+				 * break;
+				 */
 	        default:
 	        	UserRolesEntity userRole = userRolesRepository.findByName(EnumRole.ROLE_USER)
 	              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
