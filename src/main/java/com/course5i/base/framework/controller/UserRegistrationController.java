@@ -6,18 +6,23 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.course5i.base.framework.entity.UserRegistration;
 import com.course5i.base.framework.entity.UserRolesEntity;
 import com.course5i.base.framework.model.MessageResponse;
 import com.course5i.base.framework.model.MyUserDetails;
-import com.course5i.base.framework.model.UserRole;
+import com.course5i.base.framework.model.UserRegistration;
 import com.course5i.base.framework.model.UserRole.EnumRole;
 import com.course5i.base.framework.repository.UserDetailsRepository;
 import com.course5i.base.framework.repository.UserRolesRepository;
 
+@RestController
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping(value = "/api")
 public class UserRegistrationController {
 	
 	@Autowired
@@ -35,7 +40,7 @@ public class UserRegistrationController {
 	@Autowired
 	PasswordEncoder encoder;
 	
-	@PostMapping("/registration")
+	@PostMapping("/registrationPost")
 	  public ResponseEntity<?> registerUser(@RequestBody UserRegistration userRegistration) {
 	
 	    if (userDetailsRepository.existsByUsername(userRegistration.getUsername())) {
@@ -62,12 +67,6 @@ public class UserRegistrationController {
 	              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
 	          roles.add(adminRole);
 	          break;
-				/*
-				 * case "mod": UserRolesEntity modRole =
-				 * userRolesRepository.findByName(EnumRole.ROLE_MODERATOR) .orElseThrow(() ->
-				 * new RuntimeException("Error: Role is not found.")); roles.add(modRole);
-				 * break;
-				 */
 	        default:
 	        	UserRolesEntity userRole = userRolesRepository.findByName(EnumRole.ROLE_USER)
 	              .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
@@ -79,6 +78,8 @@ public class UserRegistrationController {
 	    userRolesRepository.save(user);
 	    return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
 	  }
+
+
 }
 
 
